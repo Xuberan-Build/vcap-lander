@@ -4,15 +4,20 @@ import './Hero.css';
 
 const Hero = () => {
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would integrate with your email service
-    console.log('Email submitted:', email);
-    setIsSubmitted(true);
-    // Reset after 3 seconds for demo
-    setTimeout(() => setIsSubmitted(false), 3000);
+    const formData = new FormData(e.target);
+    
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString()
+    }).then(() => {
+      setIsSubmitted(true);
+    }).catch((error) => console.log(error));
   };
 
   const titleVariants = {
@@ -55,7 +60,6 @@ const Hero = () => {
 
   return (
     <section className="hero sacred-bg">
-      {/* Sacred geometry background elements */}
       <div className="sacred-geometry-bg">
         <div className="flower-of-life" style={{ top: '10%', left: '10%' }}></div>
         <div className="flower-of-life" style={{ top: '60%', right: '15%' }}></div>
@@ -67,7 +71,6 @@ const Hero = () => {
 
       <div className="golden-section">
         <div className="hero-content">
-          {/* Main title with kinetic effect */}
           <motion.h1 
             className="consciousness-title hero-title"
             variants={titleVariants}
@@ -76,11 +79,10 @@ const Hero = () => {
           >
             <span className="kinetic-word">Visionary</span>{' '}
             <span className="kinetic-word">Creator's</span>{' '}
-            <span className="kinetic-word highlight">Activation</span>
+            <span className="kinetic-word">Activation</span>{' '}
             <span className="kinetic-word highlight">Protocol</span>
           </motion.h1>
 
-          {/* Subtitle */}
           <motion.p 
             className="consciousness-subtitle"
             variants={subtitleVariants}
@@ -90,7 +92,6 @@ const Hero = () => {
             Reprogram Your Consciousness for Creative Life Mastery
           </motion.p>
 
-          {/* Description */}
           <motion.p 
             className="consciousness-description hero-description"
             variants={subtitleVariants}
@@ -102,7 +103,6 @@ const Hero = () => {
             This isn't just another course—it's a consciousness activation protocol.
           </motion.p>
 
-          {/* Email signup form */}
           <motion.div 
             className="hero-signup"
             variants={formVariants}
@@ -110,10 +110,12 @@ const Hero = () => {
             animate="visible"
           >
             {!isSubmitted ? (
-              <form onSubmit={handleSubmit} className="signup-form">
+              <form onSubmit={handleSubmit} className="signup-form" data-netlify="true" name="consciousness-activation">
+                <input type="hidden" name="form-name" value="consciousness-activation" />
                 <div className="input-container">
                   <input
                     type="email"
+                    name="email"
                     className="consciousness-input email-input"
                     placeholder="Enter your email to begin transformation"
                     value={email}
@@ -121,11 +123,17 @@ const Hero = () => {
                     required
                   />
                 </div>
-                <button 
-                  type="submit" 
-                  className="consciousness-button signup-button animate-golden-pulse"
-                >
-                  Join the Meeting List
+                <input
+                  type="tel"
+                  name="phone"
+                  className="consciousness-input"
+                  placeholder="Phone number (optional)"
+                  style={{ marginTop: '1rem' }}
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+                <button type="submit" className="consciousness-button signup-button animate-golden-pulse">
+                  Activate Protocol
                 </button>
               </form>
             ) : (
@@ -142,7 +150,6 @@ const Hero = () => {
             )}
           </motion.div>
 
-          {/* Trust indicators */}
           <motion.div 
             className="trust-indicators"
             initial={{ opacity: 0 }}
