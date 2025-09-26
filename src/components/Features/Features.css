@@ -1,0 +1,194 @@
+.features {
+  padding: 4rem 0;
+  position: relative;
+}
+
+.features-content {
+  width: 100%;
+}
+
+.features-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.value-props-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+  width: 100%;
+}
+
+.value-prop-card {
+  background: rgba(26, 26, 46, 0.8);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.value-prop-card:hover {
+  border-color: var(--consciousness-accent);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+  background: rgba(26, 26, 46, 0.95);
+}
+
+/* HOVER BRIGHTENING EFFECT */
+.value-prop-card:hover .prop-title,
+.value-prop-card:hover .prop-subtitle,
+.value-prop-card:hover .prop-description,
+.value-prop-card:hover .prop-benefits {
+  opacity: 1;
+  color: var(--consciousness-light);
+  transition: all 0.3s ease;
+}
+
+.value-prop-card:hover .prop-icon {
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+
+.value-prop-card:hover .prop-benefits li::before {
+  color: var(--consciousness-glow);
+}
+
+.prop-icon {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.prop-content {
+  text-align: center;
+}
+
+.prop-title {
+  font-size: clamp(1.5rem, 4vw, 1.75rem);
+  font-weight: bold;
+  color: var(--consciousness-accent);
+  margin-bottom: 0.5rem;
+  background: var(--golden-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.95; /* Higher contrast */
+  transition: all 0.3s ease;
+}
+
+.prop-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  color: rgba(247, 243, 233, 0.85); /* Higher contrast */
+  margin-bottom: 1rem;
+  font-style: italic;
+  transition: all 0.3s ease;
+}
+
+.prop-description {
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  opacity: 0.95; /* Higher contrast */
+  color: rgba(247, 243, 233, 0.95); /* Higher contrast */
+  transition: all 0.3s ease;
+}
+
+.prop-benefits {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.prop-benefits li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+  opacity: 0.9; /* Higher contrast */
+  color: rgba(247, 243, 233, 0.9); /* Higher contrast */
+  transition: all 0.3s ease;
+}
+
+.prop-benefits li::before {
+  content: "✨";
+  position: absolute;
+  left: 0;
+  color: var(--consciousness-accent);
+  transition: all 0.3s ease;
+}
+
+.transformation-outcome {
+  background: rgba(26, 26, 46, 0.9);
+  border: 2px solid var(--consciousness-accent);
+  border-radius: 20px;
+  padding: 3rem;
+  text-align: center;
+  backdrop-filter: blur(15px);
+  margin-top: 2rem;
+}
+
+.outcome-content h3 {
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
+  color: var(--consciousness-accent);
+  margin-bottom: 1.5rem;
+  background: var(--golden-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.outcome-content p {
+  font-size: clamp(1rem, 3vw, 1.125rem);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  opacity: 0.95; /* Higher contrast */
+  color: rgba(247, 243, 233, 0.95); /* Higher contrast */
+}
+
+.outcome-emphasis {
+  font-weight: 500;
+  color: var(--consciousness-accent) !important;
+  opacity: 1 !important;
+}
+
+@media (max-width: 768px) {
+  .features {
+    padding: 3rem 0;
+  }
+  
+  .features-header {
+    margin-bottom: 3rem;
+  }
+  
+  .value-props-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  
+  .value-prop-card {
+    padding: 1.5rem;
+  }
+  
+  .transformation-outcome {
+    padding: 2rem;
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .value-props-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .prop-content {
+    text-align: left;
+  }
+  
+  .prop-icon {
+    text-align: left;
+  }
+}

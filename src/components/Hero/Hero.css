@@ -1,0 +1,159 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.sacred-geometry-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.golden-circle {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 2px solid var(--consciousness-accent);
+  border-radius: 50%;
+  opacity: 0.3;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.hero-title {
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.kinetic-word {
+  display: inline-block;
+  transition: all 0.3s ease;
+  margin: 0 0.25rem;
+}
+
+.kinetic-word:hover {
+  transform: translateY(-5px) scale(1.05);
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}
+
+.kinetic-word.highlight {
+  background: var(--golden-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-description {
+  width: 100%;
+  margin: 0 0 2rem 0;
+}
+
+.hero-signup {
+  width: 100%;
+  margin: 0 0 2rem 0;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.input-container {
+  width: 100%;
+}
+
+.email-input {
+  padding: 1.5rem;
+  text-align: center;
+  background: rgba(26, 26, 46, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  width: 100%;
+}
+
+.signup-button {
+  align-self: center;
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  padding: 1.5rem 3rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.success-message {
+  background: rgba(26, 26, 46, 0.9);
+  border: 2px solid var(--consciousness-accent);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  width: 100%;
+}
+
+.success-content h3 {
+  color: var(--consciousness-accent);
+  margin-bottom: 1rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.trust-indicators {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+  flex: 1;
+  min-width: 100px;
+}
+
+.indicator .number {
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: bold;
+  color: var(--consciousness-accent);
+  line-height: 1;
+}
+
+.indicator .label {
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 0.5rem;
+  }
+  .hero-content {
+    padding: 0 0.5rem;
+  }
+  .signup-button {
+    max-width: 100%;
+  }
+}

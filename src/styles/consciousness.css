@@ -1,0 +1,130 @@
+/* Full Width Consciousness Theme - BRIGHT TEXT */
+:root {
+  --consciousness-primary: #2a1810;
+  --consciousness-accent: #d4af37;
+  --consciousness-light: #ffffff;
+  --consciousness-glow: #ffd700;
+  --golden-gradient: linear-gradient(45deg, #d4af37 0%, #ffd700 50%, #d4af37 100%);
+  --consciousness-radial: radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, rgba(26, 26, 46, 0.9) 70%);
+}
+
+h1, h2, h3, h4, h5, h6,
+p {
+  position: relative;
+  z-index: 1;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.consciousness-app {
+  background: var(--consciousness-primary);
+  color: #ffffff;
+  min-height: 100vh;
+  font-family: 'Georgia', serif;
+  width: 100%;
+}
+
+.sacred-bg {
+  position: relative;
+  width: 100%;
+}
+
+.sacred-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--consciousness-radial);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.golden-section {
+  width: 100%;
+  padding: 2rem;
+}
+
+.consciousness-button {
+  background: var(--golden-gradient);
+  color: var(--consciousness-primary);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  width: 100%;
+  max-width: 400px;
+}
+
+.consciousness-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+}
+
+.consciousness-title {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 300;
+  margin-bottom: 2rem;
+  text-align: center;
+  background: var(--golden-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+  width: 100%;
+}
+
+.consciousness-subtitle {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 200;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #ffffff;
+  width: 100%;
+}
+
+.consciousness-description {
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #ffffff;
+  text-align: center;
+  width: 100%;
+}
+
+.consciousness-input {
+  background: rgba(26, 26, 46, 0.8);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 8px;
+  padding: 1rem;
+  color: #ffffff;
+  font-size: 1rem;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.consciousness-input:focus {
+  outline: none;
+  border-color: var(--consciousness-accent);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+.consciousness-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+  .golden-section {
+    padding: 1rem;
+  }
+}

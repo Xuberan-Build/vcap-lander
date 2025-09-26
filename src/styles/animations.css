@@ -1,0 +1,170 @@
+/* Consciousness Animation System */
+
+/* Sacred geometry keyframes */
+@keyframes goldenSpiral {
+  0% {
+    transform: rotate(0deg) scale(0.8);
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+    opacity: 0.3;
+  }
+}
+
+@keyframes consciousnessBreath {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+@keyframes goldenPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+  }
+}
+
+@keyframes textReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes kineticFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  75% {
+    transform: translateY(5px) rotate(-1deg);
+  }
+}
+
+@keyframes sacredGeometryRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animation classes */
+.animate-golden-spiral {
+  animation: goldenSpiral var(--duration-transformation) linear infinite;
+}
+
+.animate-consciousness-breath {
+  animation: consciousnessBreath var(--duration-breath) ease-in-out infinite;
+}
+
+.animate-golden-pulse {
+  animation: goldenPulse 3s ease-in-out infinite;
+}
+
+.animate-text-reveal {
+  animation: textReveal 1s ease-out forwards;
+}
+
+.animate-kinetic-float {
+  animation: kineticFloat 6s ease-in-out infinite;
+}
+
+.animate-sacred-rotate {
+  animation: sacredGeometryRotate 20s linear infinite;
+}
+
+/* Staggered animations for multiple elements */
+.stagger-animation > * {
+  opacity: 0;
+  animation: textReveal 0.8s ease-out forwards;
+}
+
+.stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-animation > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-animation > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-animation > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-animation > *:nth-child(5) { animation-delay: 0.5s; }
+
+/* Hover effects */
+.consciousness-hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.consciousness-hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Loading states */
+.consciousness-loading {
+  background: linear-gradient(90deg, 
+    rgba(212, 175, 55, 0.1) 0%, 
+    rgba(212, 175, 55, 0.3) 50%, 
+    rgba(212, 175, 55, 0.1) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Intersection Observer animations */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.fade-in-up.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Kinetic typography preview effects */
+.kinetic-preview {
+  position: relative;
+  overflow: hidden;
+}
+
+.kinetic-preview .letter {
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.kinetic-preview:hover .letter {
+  animation: kineticFloat 2s ease-in-out infinite;
+}
+
+.kinetic-preview:hover .letter:nth-child(odd) {
+  animation-delay: 0.1s;
+}
+
+.kinetic-preview:hover .letter:nth-child(even) {
+  animation-delay: 0.2s;
+}
