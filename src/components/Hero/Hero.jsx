@@ -3,18 +3,29 @@ import { motion } from 'framer-motion';
 import './Hero.css';
 
 const Hero = () => {
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: ''
+  });
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
+    const formDataToSend = new FormData(e.target);
     
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString()
+      body: new URLSearchParams(formDataToSend).toString()
     }).then(() => {
       setIsSubmitted(true);
     }).catch((error) => console.log(error));
@@ -112,26 +123,55 @@ const Hero = () => {
             {!isSubmitted ? (
               <form onSubmit={handleSubmit} className="signup-form" data-netlify="true" name="consciousness-activation">
                 <input type="hidden" name="form-name" value="consciousness-activation" />
-                <div className="input-container">
+                
+                <div className="form-row">
+                  <div className="form-field">
+                    <input
+                      type="text"
+                      name="firstName"
+                      className="consciousness-input"
+                      placeholder="First name"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="form-field">
+                    <input
+                      type="text"
+                      name="lastName"
+                      className="consciousness-input"
+                      placeholder="Last name"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="form-field">
                   <input
                     type="email"
                     name="email"
                     className="consciousness-input email-input"
-                    placeholder="Enter your email to begin transformation"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Your email address"
+                    value={formData.email}
+                    onChange={handleChange}
                     required
                   />
                 </div>
-                <input
-                  type="tel"
-                  name="phone"
-                  className="consciousness-input"
-                  placeholder="Phone number (optional)"
-                  style={{ marginTop: '1rem' }}
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                />
+
+                <div className="form-field">
+                  <input
+                    type="tel"
+                    name="phone"
+                    className="consciousness-input"
+                    placeholder="Phone number (optional)"
+                    value={formData.phone}
+                    onChange={handleChange}
+                  />
+                </div>
+
                 <button type="submit" className="consciousness-button signup-button animate-golden-pulse">
                   Activate Protocol
                 </button>
@@ -144,7 +184,7 @@ const Hero = () => {
                   className="success-content"
                 >
                   <h3>✨ Consciousness Activation Initiated ✨</h3>
-                  <p>Check your email for the transformation journey ahead.</p>
+                  <p>Welcome {formData.firstName}! Check your email for the transformation journey ahead.</p>
                 </motion.div>
               </div>
             )}
